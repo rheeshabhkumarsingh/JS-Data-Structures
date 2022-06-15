@@ -26,16 +26,33 @@ class LinkedList {
 
     printLL() {
         let first = this.head;
-        while (first !== null) {
+        while (first) {
             console.log(first.val);
             first = first.next;
         }
     }
+
+    pop() {
+        let first = this.head;
+        let previous;
+        while (first.next) {
+            previous = first;
+            first = first.next;
+        }
+        this.tail = previous;
+        this.tail.next = null;
+        return first.val;
+    }
 }
 
 let ll = new LinkedList();
+function inserValues() {
+    ll.push(3);
+    ll.push(4);
+    ll.push(5);
+}
+inserValues();
 ll.printLL();
-ll.push(3);
-ll.push(4);
-ll.push(5);
+ll.pop()
+console.log('------------------');
 ll.printLL();
