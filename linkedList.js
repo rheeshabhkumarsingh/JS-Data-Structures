@@ -43,6 +43,17 @@ class LinkedList {
         this.tail.next = null;
         return first.val;
     }
+
+    shift() {
+        if (!this.head) {
+            return undefined;
+        }
+        let returnVal = this.head;
+        this.head = this.head.next;
+        this.length--;
+        return returnVal;
+    }
+
 }
 
 let ll = new LinkedList();
